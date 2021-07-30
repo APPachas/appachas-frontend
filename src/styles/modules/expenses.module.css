@@ -1,0 +1,9 @@
+.info > div{
+  display: flex;
+  justify-content: space-between;
+}
+
+.info > div:first-child {
+  font-weight: bold;
+  margin-bottom: var(--space-s);
+}

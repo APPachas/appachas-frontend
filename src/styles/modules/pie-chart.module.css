@@ -1,0 +1,82 @@
+:root {
+  --segment-1-color: gray;
+  --segment-2-color: #fc3;
+  --segment-3-color: #ac0;
+  --segment-4-color: #0ac;
+  --segment-5-color: #f7b;
+  --segment1: 100;
+  --segment2: 100;
+  --segment3: 100;
+  --segment4: 100;
+  --segment5: 100;
+}
+
+.balance{
+  display: flex;
+}
+
+.balance li {
+  flex: 1;
+  padding: .3rem;
+}
+
+.pie {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  border-radius: 50%;
+  background-position: 50% 50%;
+  background-size: 150%; /* oversize bg image to prevent "underdraw" */
+  background-clip: border-box;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pie > div {
+  position: relative;
+  z-index: 100;
+  text-align: center;
+}
+
+.pie p:first-child{
+  font-weight: bold;
+  margin-bottom: var(--space-s);
+}
+
+.pie::before {
+  content: '';
+  position: absolute;
+  top: .5em;
+  left: .5em;
+  right: .5em;
+  bottom: .5em;
+  border-radius: 50%;
+  background: #fff;
+}
+
+.pie:after {
+  content:'';
+  float:left;
+  padding-top:100%;
+}
+
+.positive .pie{
+  background-color: var(--success-color);
+  transition: all 1s linear;
+  animation-name: rotate;
+  animation-duration: 4s;
+}
+.positive .pie p:last-child{
+  color: var(--success-color);
+}
+
+.negative .pie{
+  background-color: var(--danger-color);
+}
+.negative .pie p:last-child{
+  color: var(--danger-color);
+}
+
+
