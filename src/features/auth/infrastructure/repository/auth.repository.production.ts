@@ -13,7 +13,7 @@ export class AuthProductionRepository implements AuthRepository {
         'Content-Type': 'application/json',
       },
       credentials: 'include',
-      mode: 'cors',
+      mode: 'no-cors',
       body: JSON.stringify(userSignIn),
     }).then(response => response)
   }
