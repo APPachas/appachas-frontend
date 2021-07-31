@@ -7,7 +7,11 @@ import { Expenses } from './features/expense/ui/expenses'
 import { Balance } from './features/expense/ui/balance'
 import { SignIn } from './features/auth/ui/signin'
 import { SignUp } from './features/user/ui/sign-up'
-import { NewGroup } from './features/group/ui/new-group'
+import { CreateGroup } from './features/group/ui/create-group'
+import { CreateExpense } from './features/expense/ui/create-expense'
+import { GroupHeader } from './features/group/ui/group-header'
+import { TotalCard } from './features/expense/ui/total-card'
+import { UpdateExpense } from './features/expense/ui/update-expense'
 
 function App() {
   return (
@@ -17,6 +21,14 @@ function App() {
         <Switch>
           <Route path="/login" component={SignIn} exact />
           <Route path="/registrar" component={SignUp} exact />
+          <Route path="/ajustes" exact>
+            <section id={'layout-boxed'}>
+              <p>
+                <em>Próximamente</em>
+              </p>
+            </section>
+            <Navbar></Navbar>
+          </Route>
           <Route path="/grupos/:path?" exact>
             <Switch>
               <Route path="/grupos/activos" component={Groups} exact />
@@ -27,13 +39,17 @@ function App() {
                   </p>
                 </section>
               </Route>
-              <Route path="/grupos/nuevo" component={NewGroup} exact />
+              <Route path="/grupos/nuevo" component={CreateGroup} exact />
             </Switch>
             <Navbar></Navbar>
           </Route>
           <Route path="/grupo/:id">
+            <GroupHeader />
+            <TotalCard />
             <Switch>
               <Route path="/grupo/:id/gastos" component={Expenses} exact />
+              <Route path="/grupo/:id/nuevo-gasto" component={CreateExpense} exact />
+              <Route path="/grupo/:id/gastos/:expenseId" component={UpdateExpense} exact />
               <Route path="/grupo/:id/balance" component={Balance} exact />
             </Switch>
             <Navbar></Navbar>

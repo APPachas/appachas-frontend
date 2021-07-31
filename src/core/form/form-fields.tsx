@@ -25,7 +25,7 @@ export const FormikSelect: FC<Props> = ({ label, ...props }) => {
     <div className={'form-group'}>
       <select className={'input'} {...field} {...props} />
       <label className={'input--label'} htmlFor={props.id || props.name}>
-        Categrias
+        {label}
       </label>
       {meta.touched && meta.error ? <div className="error">{meta.error}</div> : null}
     </div>

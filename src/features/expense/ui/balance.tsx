@@ -5,9 +5,7 @@ import GetBalanceByGroupUseCase from '../application/getBalanceByGroup.useCase'
 import { RouteParams } from '../../../core/routeParams'
 import { useParams } from 'react-router-dom'
 import { UserBalance } from '../domain/userBalance'
-import { GroupHeader } from '../../group/ui/group-header'
 import styles from '../../../styles/modules/pie-chart.module.css'
-import { TotalCard } from './total-card'
 
 export const Balance: FC = () => {
   const { id } = useParams<RouteParams>()
@@ -25,8 +23,6 @@ export const Balance: FC = () => {
 
   return (
     <section id={'layout-group'}>
-      <GroupHeader />
-      <TotalCard />
       <div className={'box'}>
         <ul className={styles.balance}>
           {balances.map(balance => (

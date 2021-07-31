@@ -1,12 +1,9 @@
 import { FC, useEffect, useState } from 'react'
 import { NavLink, useParams } from 'react-router-dom'
-import { GroupHeader } from '../../group/ui/group-header'
-
 import { ExpenseRepositoryFactory } from '../application/factory/expense.factory'
 import FindExpensesByGroupUseCase from '../application/findExpensesByGroup.useCase'
 import { RouteParams } from '../../../core/routeParams'
 import { GroupID } from '../../../core/types'
-import { TotalCard } from './total-card'
 import styles from '../../../styles/modules/expenses.module.css'
 import { UserInfo } from '../../user/ui/user-info'
 import { Expense } from '../domain/expense'
@@ -27,12 +24,13 @@ export const Expenses: FC = () => {
 
   return (
     <section id={'layout-group'}>
-      <GroupHeader />
-      <TotalCard />
       <ul>
         {expenses.map(expense => (
           <li className={'card'} key={expense.id}>
-            <NavLink to={'/gastos/' + expense.id} className={`${styles.info} card-content`}>
+            <NavLink
+              to={`/grupo/${id}/gastos/${expense.id}`}
+              className={`${styles.info} card-content`}
+            >
               <div>
                 <p>{expense.description}</p>
                 <p>

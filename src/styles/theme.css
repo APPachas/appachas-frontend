@@ -41,8 +41,8 @@
   --space-s: .5rem;
   --space-m: 1rem;
   --space-l: 1.5rem;
-  --space-xl: 3rem;
-  --space-xxl: 5rem;
+  --space-xl: 3.125rem;
+  --space-xxl: 7.5rem;
 
   /* z-index */
   --z-index-zero: 0;
@@ -59,6 +59,8 @@ html {
 
 body {
   background-color: var(--background);
+  padding-top: var(--space-xl);
+  padding-bottom: var(--space-xxl);
 }
 
 a {
@@ -115,6 +117,11 @@ a:focus {
   border: 1px solid var(--secondary-color);
 }
 
+.btn-danger{
+  color: var(--danger-color);
+  border: 1px solid var(--danger-color);
+  width: 100%;
+}
 
 .card, .card-dark {
   padding-left: var(--space-m);
@@ -145,8 +152,6 @@ a:focus {
 }
 
 #layout, #layout-boxed {
-  padding-top: var(--space-xxl);
-  padding-bottom: var(--space-xxl);
   -webkit-animation: fadein .5s; /* Safari, Chrome and Opera > 12.1 */
   -moz-animation: fadein .5s; /* Firefox < 16 */
   -ms-animation: fadein .5s; /* Internet Explorer */
@@ -155,11 +160,21 @@ a:focus {
 }
 
 #layout-boxed {
-  padding: var(--space-xxl) var(--space-m);
+  padding-left: var(--space-m);
+  padding-right: var(--space-m);
+  -webkit-animation: fadein .5s; /* Safari, Chrome and Opera > 12.1 */
+  -moz-animation: fadein .5s; /* Firefox < 16 */
+  -ms-animation: fadein .5s; /* Internet Explorer */
+  -o-animation: fadein .5s; /* Opera < 12.1 */
+  animation: fadein .5s;
 }
 
 #layout-group {
-  padding-top: var(--space-xl);
+  -webkit-animation: fadein .6s; /* Safari, Chrome and Opera > 12.1 */
+  -moz-animation: fadein .6s; /* Firefox < 16 */
+  -ms-animation: fadein .6s; /* Internet Explorer */
+  -o-animation: fadein .6s; /* Opera < 12.1 */
+  animation: fadein .6s;
 }
 
 .box{

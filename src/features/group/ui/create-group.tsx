@@ -5,7 +5,7 @@ import INewGroup from '../domain/new-group'
 import { GroupRepositoryFactory } from '../application/factory/group.factory'
 import CreateGroupUseCase from '../application/createGroup.useCase'
 
-export const NewGroup: FC = () => {
+export const CreateGroup: FC = () => {
   const initialValues: INewGroup = {
     name: '',
   }

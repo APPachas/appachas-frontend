@@ -18,7 +18,7 @@ export const generalLinks: NavbarLinks[] = [
   },
   {
     title: 'Ajustes',
-    path: '/grupo/activos',
+    path: '/ajustes',
     icon: 'manage_accounts',
   },
 ]
@@ -28,6 +28,11 @@ export const groupLinks: NavbarLinks[] = [
     title: 'Gastos',
     path: `/gastos`,
     icon: 'receipt',
+  },
+  {
+    title: 'Añadir',
+    path: `/nuevo-gasto`,
+    icon: 'post_add',
   },
   {
     title: 'Balance',
