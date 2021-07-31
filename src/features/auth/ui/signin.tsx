@@ -4,16 +4,22 @@ import { FormikInput } from '../../../core/form/form-fields'
 import { UserSignIn } from '../domain/userSignIn'
 import { SignInUseCase } from '../application/signin.useCase'
 import { AuthRepositoryFactory } from '../application/factory/auth.factory'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useHistory } from 'react-router-dom'
 
 export const SignIn: FC = () => {
+  const history = useHistory()
+
   const initialValues: UserSignIn = {
     email: 'alejandro2@appochas.com',
     password: '12345678',
   }
   async function signIn(userSignIn: UserSignIn) {
     const authRepository = AuthRepositoryFactory.build()
-    await new SignInUseCase(authRepository).execute(userSignIn)
+    new SignInUseCase(authRepository).execute(userSignIn).then(response => {
+      if (response.status === 200) {
+        history.push('/grupos/activos')
+      }
+    })
   }
   return (
     <section id={'layout'}>

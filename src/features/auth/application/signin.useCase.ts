@@ -5,10 +5,10 @@ import { AuthRepository } from '../domain/ports/auth.repository'
 import { UserSignIn } from '../domain/userSignIn'
 
 @injectable()
-export class SignInUseCase implements UseCase<boolean, UserSignIn> {
+export class SignInUseCase implements UseCase<Response, UserSignIn> {
   constructor(@inject(TYPES.AUTH_REPOSITORY) private readonly authRepository: AuthRepository) {}
 
-  execute(userSignIn: UserSignIn): Promise<boolean> {
+  execute(userSignIn: UserSignIn): Promise<Response> {
     return this.authRepository.signIn(userSignIn)
   }
 }
