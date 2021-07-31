@@ -1,5 +1,5 @@
 import './styles/app.css'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
 import { Header } from './core/header/header'
 import { Groups } from './features/group/ui/groups'
 import { SignIn } from './features/auth/ui/signin'
@@ -19,6 +19,9 @@ function App() {
       <Router>
         <Header></Header>
         <Switch>
+          <Route path="/" exact>
+            <Redirect to="/login" />
+          </Route>
           <Route path="/login" component={SignIn} exact />
           <Route path="/registrar" component={SignUp} exact />
           <Route path="/ajustes" exact>
