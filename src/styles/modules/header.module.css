@@ -1,0 +1,19 @@
+.header {
+  position: fixed;
+  top: 0;
+  padding: 0 1rem;
+  width: 100%;
+  min-height: 50px;
+  max-height: 50px;
+  background-color: var(--white);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: var(--z-shadow-2);
+  z-index: var(--z-index-navbar);
+}
+
+.logo > img {
+  max-width: 9.813rem;
+  height: 1.500rem
+}
