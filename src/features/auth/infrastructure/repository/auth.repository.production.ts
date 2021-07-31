@@ -6,15 +6,14 @@ import { UserSignIn } from '../../domain/userSignIn'
 export class AuthProductionRepository implements AuthRepository {
   api_endpoint = process.env.REACT_APP_API_REST + '/auth/'
 
-  async signIn(userSignIn: UserSignIn): Promise<Response> {
+  async signIn(userSignIn: UserSignIn): Promise<boolean> {
     return await fetch(this.api_endpoint, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       credentials: 'include',
-      mode: 'no-cors',
       body: JSON.stringify(userSignIn),
-    }).then(response => response)
+    }).then(response => response.ok)
   }
 }

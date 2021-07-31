@@ -10,13 +10,14 @@ export const SignIn: FC = () => {
   const history = useHistory()
 
   const initialValues: UserSignIn = {
-    email: 'alejandro2@appochas.com',
+    email: 'alejandro@appochas.com',
     password: '12345678',
   }
   async function signIn(userSignIn: UserSignIn) {
     const authRepository = AuthRepositoryFactory.build()
-    new SignInUseCase(authRepository).execute(userSignIn).then(response => {
-      if (response.status === 200) {
+    await new SignInUseCase(authRepository).execute(userSignIn).then(response => {
+      console.log(response)
+      if (response) {
         history.push('/grupos/activos')
       }
     })
